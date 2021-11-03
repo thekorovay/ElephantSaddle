@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">ElephantSaddle</string>
     <string name="omega_phrase">Все говорят "%s", а ты купи слона</string>
+    <string name="omega_phrase_on_silence">Все молчат, а ты купи слона</string>
     <string name="omega_phrase_after_purchase">Все говорили "%s", а ты купил слона</string>
     <string name="begin_recording">Начать запись</string>
     <string name="stop_recording">Закончить запись</string>
     <string name="listening">Слушаю…</string>
     <string name="error_permission">Для работы приложения нужно предоставить разрешение на запись звука</string>
-    <string name="error_with_code">При записи возникла ошибка с кодом %d</string>
-    <string name="error_init_speaker">Не удалось инициализировать TextToSpeech</string>
+    <string name="error_network">Для работы приложения необходимо подключение к интернету</string>
+    <string name="error_unknown">При записи возникла какая-то ошибка. Вот и думайте</string>
 </resources>

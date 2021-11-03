@@ -5,12 +5,8 @@
     <data>
 
         <variable
-            name="isRecording"
-            type="Boolean" />
-
-        <variable
-            name="speechToTextValue"
-            type="String" />
+            name="viewModel"
+            type="com.nikevg.chebez.elephant.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,36 +14,20 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/speechToTextStartStop" >
-
-            <TextView
-                android:id="@+id/speechToTextText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{speechToTextValue}"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-
-        </ScrollView>
-
         <Button
             android:id="@+id/speechToTextStartStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
+            android:onClick="@{() -> viewModel.isRecording ? viewModel.stopListening() : viewModel.requestListening()}"
             android:paddingHorizontal="32dp"
             android:paddingVertical="16dp"
-            android:text="@{!isRecording ? @string/begin_recording : @string/stop_recording}"
+            android:text="@{viewModel.isRecording ? @string/stop_recording : @string/begin_recording}"
             android:textColor="@color/white"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
