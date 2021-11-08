@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ElephantSaddle</string>
+    <string name="app_name">Седло для слона</string>
     <string name="omega_phrase">Все говорят "%s", а ты купи слона</string>
     <string name="omega_phrase_on_silence">Все молчат, а ты купи слона</string>
     <string name="omega_phrase_after_purchase">Все говорили "%s", а ты купил слона</string>
