@@ -67,4 +67,19 @@ class MainViewModel @Inject constructor(
     fun speak(text: String) {
         speaker.speak(text)
     }
+
+    fun purchaseElephant() {
+        cancelListening()
+        postEvent(PurchaseElephantEvent)
+    }
+
+    fun showElephants() {
+        cancelListening()
+        postEvent(ShowElephantsEvent)
+    }
+
+    private fun cancelListening() {
+        recognizer.cancelListening()
+        mutableIsRecording.value = false
+    }
 }

@@ -7,4 +7,6 @@ class RecognitionResultsReadyEvent(val results: String?) : ViewEvent
 object CheckMicPermissionEvent : ViewEvent
 object MicPermissionDeniedErrorEvent : ViewEvent
 object NetworkErrorEvent : ViewEvent
+object PurchaseElephantEvent : ViewEvent
+object ShowElephantsEvent : ViewEvent
 object UnknownErrorEvent : ViewEvent

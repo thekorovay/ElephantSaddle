@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription">
+
+    <data>
+
+        <variable
+            name="elephant"
+            type="com.nikevg.chebez.elephant.database.Elephant" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/itemElephantImage"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:paddingVertical="32dp"
+            android:src="@{context.getDrawable(elephant.drawableRes)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/elephant_1" />
+
+        <TextView
+            android:id="@+id/itemElephantText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingBottom="32dp"
+            android:text="@{elephant.nameRes}"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@id/itemElephantImage"
+            tools:text="@string/elephant_name_george" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

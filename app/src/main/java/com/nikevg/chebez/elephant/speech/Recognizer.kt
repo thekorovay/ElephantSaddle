@@ -14,6 +14,9 @@ class Recognizer @Inject constructor(
     private val speechRecognizer: SpeechRecognizer
 ) {
 
+    private var ignoreRecognitionResults = false
+    private var isListening = false
+
     fun setRecognitionCallbacks(
         onReadyForSpeech: () -> Unit,
         onResults: (results: String?) -> Unit,
@@ -22,15 +25,22 @@ class Recognizer @Inject constructor(
         speechRecognizer.setRecognitionListener(
             object : RecognitionListener {
                 override fun onReadyForSpeech(p0: Bundle?) {
+                    isListening = true
                     onReadyForSpeech()
                 }
 
                 override fun onError(code: Int) {
-                    onError(code)
+                    isListening = false
+                    if (!ignoreRecognitionResults) {
+                        onError(code)
+                    }
                 }
 
                 override fun onResults(results: Bundle?) {
-                    onResults(results?.getStringArrayList(RESULTS_RECOGNITION)?.firstOrNull())
+                    isListening = false
+                    if (!ignoreRecognitionResults) {
+                        onResults(results?.getStringArrayList(RESULTS_RECOGNITION)?.firstOrNull())
+                    }
                 }
 
                 override fun onBeginningOfSpeech() { }
@@ -49,18 +59,26 @@ class Recognizer @Inject constructor(
     }
 
     fun startListening() {
+        ignoreRecognitionResults = false
+
         val speechRecognizerIntent = Intent(ACTION_RECOGNIZE_SPEECH).apply {
             putExtra(EXTRA_LANGUAGE_MODEL, LANGUAGE_MODEL_FREE_FORM)
             putExtra(EXTRA_LANGUAGE, locale)
         }
 
-        speechRecognizer.run {
-            cancel()
-            startListening(speechRecognizerIntent)
-        }
+        speechRecognizer.startListening(speechRecognizerIntent)
     }
 
     fun stopListening() {
-        speechRecognizer.stopListening()
+        // Если вызвать stopListening, когда запись не идет, то speech recognizer кинет ошибку 5,
+        // которая вынесет тебе весь мозг, пока ты поймешь, в чем дело. Поэтому проверяем запись.
+        if (isListening) {
+            speechRecognizer.stopListening()
+        }
+    }
+
+    fun cancelListening() {
+        ignoreRecognitionResults = true
+        stopListening()
     }
 }
