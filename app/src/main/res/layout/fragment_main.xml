@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.nikevg.chebez.elephant.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/speechToTextStartStop"
+            style="@style/FloatingActionButtonStyle"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="32dp"
+            android:onClick="@{() -> viewModel.isRecording ? viewModel.stopListening() : viewModel.requestListening()}"
+            android:src="@{viewModel.isRecording ? @drawable/ic_mic_off : @drawable/ic_mic}"
+            app:fabCustomSize="64dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
