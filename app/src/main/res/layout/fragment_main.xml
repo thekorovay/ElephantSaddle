@@ -17,6 +17,17 @@
         android:padding="16dp">
 
         <ImageView
+            android:id="@+id/mainSaddle"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/saddle"
+            app:layout_constraintBottom_toTopOf="@id/mainStartStopListening"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainPurchaseElephant" />
+
+        <ImageView
             android:id="@+id/mainshowElephants"
             android:layout_width="64dp"
             android:layout_height="64dp"

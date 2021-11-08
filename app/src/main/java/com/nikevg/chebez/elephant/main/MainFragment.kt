@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation.*
+import android.view.animation.ScaleAnimation
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -78,6 +80,19 @@ class MainFragment: Fragment() {
                     }
                 }
             }
+        }
+
+        ScaleAnimation(
+            1f, 0.95f,
+            1f, 0.95f,
+            RELATIVE_TO_SELF, 0.5f,
+            RELATIVE_TO_SELF, 0.5f,
+        ).apply {
+            repeatMode = REVERSE
+            repeatCount = INFINITE
+            duration = 2000
+        }.let { animation ->
+            binding.mainSaddle.startAnimation(animation)
         }
 
         return binding.root
