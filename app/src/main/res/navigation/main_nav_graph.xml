@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.nikevg.chebez.elephant.main.MainFragment"
+        android:label="MainFragment">
+        <action
+            android:id="@+id/action_to_elephants"
+            app:destination="@id/elephantsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/elephantsFragment"
+        android:name="com.nikevg.chebez.elephant.elephants.ElephantsFragment"
+        android:label="ElephantsFragment" />
+</navigation>
