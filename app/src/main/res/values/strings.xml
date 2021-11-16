@@ -13,4 +13,6 @@
     <string name="elephant_name_jeannie">Джинни</string>
     <string name="elephant_name_percy">Перси</string>
     <string name="my_elephants">Мои слоны</string>
+    <string name="elephant_buy">Купить!</string>
+    <string name="elephant_id_pattern">id: %d</string>
 </resources>

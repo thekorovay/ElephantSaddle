@@ -8,7 +8,7 @@ class ElephantsDiffCallback : DiffUtil.ItemCallback<Elephant>() {
     override fun areItemsTheSame(
         oldItem: Elephant,
         newItem: Elephant
-    ): Boolean = oldItem.nameRes == newItem.nameRes
+    ): Boolean = oldItem.id == newItem.id
 
     override fun areContentsTheSame(
         oldItem: Elephant,
